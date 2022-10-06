@@ -27,34 +27,34 @@
 
 
 
-<script>
+<script> 
+    var correct = 0
+    var wrong = 0
+    var incorrect_values = 0
+    function checkGuess(){
+        console.log("Getting form values")
+        musician_name = document.getElementById("musician_name").value
+        musician_guess = document.getElementById("guess_musician").value
 
-
-
-var correct = 0
-var wrong = 0
-
-
-
-function checkGuess(){
-    console.log("Getting form values")
-    name = document.getElementById("MusicianName").value
-    guess = document.getElementById("guessName").value
-    
-    if(name === guess){
-        correct = correct + 1
-        alert("You got it right")
+        out = document.getElementById("result")
         
-    } else {
-        wrong = wrong + 1
-        alert("wrong musician")
-
-
-
-   }
-    document.getElementById("result").innerHTML = "wrong guess :" + wrong + "\n correct guess :" + correct
-}
-</script> 
+        if(incorrect_values >= 3) {
+           
+            alert("Sorry, game Over");
+        }
+        else if(musician_name == musician_guess){
+            correct = correct + 1
+            incorrect_values = 0
+            alert("You got it right")
+            out.innerHTML =  "Correct Guess: " + correct + " Wrong Guess: " + wrong
+        } else {
+            wrong = wrong + 1
+            incorrect_values += 1
+            alert("Wrong Musician")
+            out.innerHTML = result.innerHTML = "Correct Guess: " + correct + " Wrong Guess: " + wrong
+        }
+    }
+    </script>
 
 <div class="container">
     <img src="Nymph.jpg-" class="img-fluid" onclick="swapImage()" id="Image" width="100px" height="100px " alt="insect" >
