@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+<title> Vacation </title>
+<h2>Aparna Dondapati Select a vacation</h2>
+
+<div class="container">
+<form>
+    <div class="form-group">
+     <input type="checkbox" id="byair" name="vacationtime" value="true">
+     <label for="air">Travel by Air</label></div> <br>
+     <div class="form-group">
+     <input type="checkbox" id="bydomestic" name="vacationtime" value="true">
+     <label for="domestic">Domestic</label> </div><br>
+     <div class="form-group">
+     <input type="checkbox" id="byresort" name="vacationtime" value="false">
+     <label for="resort">Resort</label> </div><br>
+     <div class="form-group">
+     <input type="button" class="btn btn-warning" value="Select a vacation" onclick="selectVacation()">
+ </div>
+ </form>
+ <br>
+
+ <script>
+     var my_vacation={};
+     function selectVacation(){
+         my_vacation={};
+         let throughair=document.getElementById("byair").checked
+         let throughdomestic=document.getElementById("bydomestic").checked
+         let throughresort=document.getElementById("byresort").checked
+ if(throughair)
+ {
+     my_vacation.byair=true;
+ }
+ else
+ {
+     my_vacation.byair=false;
+ }
+ if(throughdomestic)
+ {
+     my_vacation.bydomestic=true;
+ }
+ else
+ {
+     my_vacation.bydomestic=false;
+ }
+ if(throughresort)
+ {
+     my_vacation.byresort=true;
+ }
+ else
+ {
+     my_vacation.byresort=false;
+ }
+ 
+
+ document.getElementById("result").innerHTML=JSON.stringify(my_vacation)
+}
+ </script>
+
+</body>
+</html> 
